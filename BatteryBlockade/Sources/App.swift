@@ -23,7 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
         if let button = statusItem?.button {
-            button.image = NSImage(systemSymbolName: "battery.100.bolt", accessibilityDescription: "Battery Blockade")
+            button.image = NSImage(systemSymbolName: "battery.100.bolt", accessibilityDescription: "adhBattery")
         }
         
         setupMenu()
@@ -50,7 +50,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(NSMenuItem(title: "Test 5% Lockdown", action: #selector(testLockdown), keyEquivalent: "l"))
         menu.addItem(NSMenuItem.separator())
         
-        menu.addItem(NSMenuItem(title: "Quit BatteryBlockade", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
+        menu.addItem(NSMenuItem(title: "Quit adhBattery", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
         
         statusItem?.menu = menu
     }
@@ -84,7 +84,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         if let button = statusItem?.button {
-            button.image = NSImage(systemSymbolName: iconName, accessibilityDescription: "Battery Blockade")
+            button.image = NSImage(systemSymbolName: iconName, accessibilityDescription: "adhBattery")
         }
     }
 }

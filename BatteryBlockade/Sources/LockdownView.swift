@@ -14,11 +14,11 @@ struct LockdownView: View {
                     .font(.system(size: 100))
                     .foregroundColor(.red)
                 
-                Text(isCritical ? "CRITICAL BATTERY: \(percentage)%" : "LOW BATTERY: \(percentage)%")
+                Text(isCritical ? "Ope. Stop right there." : "LOW BATTERY: \(percentage)%")
                     .font(.system(size: 60, weight: .black))
                     .foregroundColor(.white)
                 
-                Text(isCritical ? "PLUG IN YOUR MAC IMMEDIATELY." : "Your battery is getting low. We recommend plugging it in soon to avoid disruption.")
+                Text(isCritical ? "Your battery is at \(percentage)%. You're in lockdown.\n🔌 Plug in your Mac to unlock your screen and get back to hyperfocusing." : "Hey, you're deep in the zone. We love that for you. But you have \(percentage)% battery left. Go grab your charger before you lose your momentum.")
                     .font(.title)
                     .foregroundColor(.gray)
                     .multilineTextAlignment(.center)
@@ -28,7 +28,7 @@ struct LockdownView: View {
                     Button(action: {
                         dismissAction?()
                     }) {
-                        Text("I'll plug it in soon")
+                        Text("I'll go get my charger")
                             .font(.title2.bold())
                             .foregroundColor(.white)
                             .padding(.horizontal, 40)
@@ -42,7 +42,7 @@ struct LockdownView: View {
                     Button(action: {
                         dismissAction?()
                     }) {
-                        Text("Snooze for 1% battery life")
+                        Text("I'm grabbing the cord! (Snooze for 1%)")
                             .font(.title3.bold())
                             .foregroundColor(.white)
                             .padding(.horizontal, 30)
