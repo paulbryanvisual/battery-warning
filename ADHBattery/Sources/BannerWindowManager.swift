@@ -16,7 +16,7 @@ class BannerWindowManager {
                         Text("Battery at \(percentage)%")
                             .font(.headline)
                             .foregroundColor(.primary)
-                        Text("Consider plugging in your Mac soon.")
+                        Text("Your executive function assistant reminds you: find your charger soon.")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }

@@ -3,8 +3,8 @@ import AppKit
 import Combine
 
 @main
-struct BatteryBlockadeApp: App {
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+struct ADHBatteryApp: App {
+    @NSApplicationDelegateAdaptor(ADHBatteryDelegate.self) var appDelegate
     
     var body: some Scene {
         Settings {
@@ -14,7 +14,7 @@ struct BatteryBlockadeApp: App {
     }
 }
 
-class AppDelegate: NSObject, NSApplicationDelegate {
+class ADHBatteryDelegate: NSObject, NSApplicationDelegate {
     var statusItem: NSStatusItem?
     var statusMenuItem: NSMenuItem?
     var cancellables = Set<AnyCancellable>()
@@ -49,10 +49,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(NSMenuItem(title: "Test 10% Warning", action: #selector(testWarning), keyEquivalent: "w"))
         menu.addItem(NSMenuItem(title: "Test 5% Lockdown", action: #selector(testLockdown), keyEquivalent: "l"))
         menu.addItem(NSMenuItem.separator())
+        let loginItem = NSMenuItem(title: "Launch at Login", action: #selector(toggleLoginItem), keyEquivalent: "")
+        loginItem.state = LoginItemManager.shared.isEnabled ? .on : .off
+        menu.addItem(loginItem)
         
+        menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Quit adhBattery", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
         
         statusItem?.menu = menu
+    }
+    
+    @objc func toggleLoginItem(_ sender: NSMenuItem) {
+        LoginItemManager.shared.toggle()
+        sender.state = LoginItemManager.shared.isEnabled ? .on : .off
     }
     
     @objc func testGentle() {

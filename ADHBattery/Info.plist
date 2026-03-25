@@ -5,13 +5,13 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
-	<string>BatteryBlockade</string>
+	<string>ADHBattery</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.bryanpaul.batteryblockade</string>
+	<string>com.bryanpaul.adhbattery</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>BatteryBlockade</string>
+	<string>ADHBattery</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -19,7 +19,7 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSMinimumSystemVersion</key>
-	<string>11.0</string>
+	<string>12.0</string>
 	<key>LSUIElement</key>
 	<true/>
 </dict>
