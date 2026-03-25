@@ -79,21 +79,13 @@ class ADHBatteryDelegate: NSObject, NSApplicationDelegate {
     func updateStatus(percentage: Int, isCharging: Bool) {
         statusMenuItem?.title = "Battery: \(percentage)% (\(isCharging ? "Charging" : "Discharging"))"
         
-        let iconName: String
-        if isCharging {
-            iconName = "battery.100.bolt"
-        } else if percentage > 80 {
-            iconName = "battery.100"
-        } else if percentage > 50 {
-            iconName = "battery.50"
-        } else if percentage > 20 {
-            iconName = "battery.25"
-        } else {
-            iconName = "battery.0"
-        }
-        
         if let button = statusItem?.button {
-            button.image = NSImage(systemSymbolName: iconName, accessibilityDescription: "adhBattery")
+            let iconName = isCharging ? "icon-white" : "icon-black"
+            if let image = NSImage(named: iconName) ?? NSImage(contentsOfFile: Bundle.main.path(forResource: iconName, ofType: "svg") ?? "") {
+                image.isTemplate = true
+                button.image = image
+            }
+            button.image?.accessibilityDescription = "adhBattery"
         }
     }
 }
